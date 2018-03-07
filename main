@@ -1,0 +1,43 @@
+from abc import ABCMeta, abstractmethod
+class Scene(object):
+
+
+    def __init__(self, trope, identity, suspense):
+        self.events = events
+        self.id = identity
+        self.suspense = suspense
+        self.trope = trope
+
+
+
+class Event(object):
+    """An Abrstract event class
+
+    """
+
+    __metaclass__ = ABCMeta
+    def __init__(self, identity, name):
+        self.identity = identity
+        self.name = name
+
+
+class Scenario(object):
+    def __init__(self, trope, identity, suspensecurve):
+        self.id = identity
+        self.suspense = suspensecurve
+        self.trope = trope
+
+class Element(object):
+    __metaclass__ = ABCMeta
+    def __init__(self, identity, name):
+        self.identity = identity
+        self.name = name
+
+class Character(Element):
+    def __init__(self, action, moralilty,relations):
+        super().__init__(self)
+        self.action = True
+        self.moralilty = moralilty
+        self.relations = relations  ##Should be tuples, eg <character,status>
+
+
