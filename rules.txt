@@ -1,0 +1,9 @@
+1 {beat(S,A,M,O,T) : agent(A) : move(M,ST,A,O): object(O)} 1 :- T = 1..beats.
+
+agent(A) :- agent(A,_).
+object(O):- agent(O,_)
+
+
+beat(S+ST,A,M,O,T) :- move(M,ST,A,O),beat(S,_,_,_,T-1), S<S+ST,1{T}peak.
+
+beat(S+ST,A,M,O,T) :- move(M,ST,A,O),beat(S,_,_,_,T-1), S>S+ST,peak{T}beats.
