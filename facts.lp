@@ -5,7 +5,10 @@
 
 agent(ben,hero).
 agent(sil,villain).
-
-
-beat(0,empty,empty,empty,0).
+location(seedyBar).
+location(office).
+beat(0,empty,empty,empty,empty,0).
 beats(beatnumber).
+
+at(ben,office,0).
+at(sil,seedyBar,0).

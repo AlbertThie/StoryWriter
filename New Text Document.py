@@ -33,10 +33,13 @@ class AspParser(object):
 				for key in self._programs:
 				    clingo.parse_program(self._programs[key], lambda stm: bb.add(stm))
 			self._control.ground([('base', [])])
-			result = self._control.solve()
+			result = str(self._control.solve())
+			result = result.replace('beat(0,empty,empty,empty,0)', '')
 			print(result)
 			with self._control.solve(yield_=True) as handle:
 				for m in handle: 
+					m = str(m)
+					m = m.replace('beat(0,empty,empty,empty,0)', '')
 					print(m) 
 				print(handle.get())
 
@@ -47,6 +50,7 @@ class AspParser(object):
 
 
 Parser = AspParser()
+Parser._control.configuration.solve.models = 0
 Parser.loadfile("facts.lp")
 Parser.loadfile("rules.lp")
 Parser.parse()
